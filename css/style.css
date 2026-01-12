@@ -230,7 +230,7 @@ body {
 
 /* HERO SECTION - Full width with background */
 .hero {
-    background: url('../images/hero-bg.jpg') center top/cover;
+    background: url('../images/hero-bg.webp') center top/cover;
     min-height: 600px;
     display: flex;
     align-items: center;
@@ -317,7 +317,7 @@ body {
 }
 
 .section-dark {
-    background: url('../images/home3.jpg') center/cover;
+    background: url('../images/home3.webp') center/cover;
     position: relative;
     color: var(--white);
 }
@@ -428,7 +428,7 @@ body {
 /* SERVICE AREA MAP */
 .map-section {
     padding: 100px 65px;
-    background: url('../images/home4.jpg') center/cover;
+    background: url('../images/home4.webp') center/cover;
     position: relative;
 }
 

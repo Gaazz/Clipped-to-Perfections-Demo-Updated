@@ -573,9 +573,18 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero hero-no-overlay" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/hardscape1.jpg') center center/cover; min-height: 400px; margin-top: -150px; padding-top: 475px; padding-bottom: 150px;">
-        <div class="hero-content">
+    <!-- Hero Section with Video Background -->
+    <section class="hero hero-no-overlay" style="position: relative; overflow: hidden; min-height: 400px; margin-top: -150px; padding-top: 475px; padding-bottom: 150px;">
+        <!-- Fallback Image (shows only if video fails to load) -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/hardscape1.webp') center center/cover; z-index: 1;"></div>
+        <!-- Video Background (on top of fallback) -->
+        <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2;">
+            <source src="images/brush-clearing-3.mp4" type="video/mp4">
+        </video>
+        <!-- Dark Overlay (on top of video) -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 3;"></div>
+        <!-- Content (on top of everything) -->
+        <div class="hero-content" style="position: relative; z-index: 4;">
             <h1>Our Work Gallery</h1>
             <p><strong>Browse Our Projects by Service Category</strong></p>
         </div>
@@ -592,11 +601,11 @@
                             <p>Complete landscape design and installation to transform your outdoor spaces</p>
                         </div>
                         <div class="featured-gallery-grid">
-                            <div class="gallery-photo"><img src="images/landscaping-1.jpg" alt="Landscape Design"></div>
-                            <div class="gallery-photo"><img src="images/landscaping-2.jpg" alt="Landscape Installation"></div>
-                            <div class="gallery-photo"><img src="images/landscaping-3.jpg" alt="Garden Landscaping"></div>
-                            <div class="gallery-photo"><img src="images/image.jpg" alt="Professional Landscaping"></div>
-                            <div class="gallery-photo"><img src="images/image1.jpg" alt="Landscape Transformation"></div>
+                            <div class="gallery-photo"><img src="images/landscaping-1.webp" alt="Landscape Design"></div>
+                            <div class="gallery-photo"><img src="images/landscaping-2.webp" alt="Landscape Installation"></div>
+                            <div class="gallery-photo"><img src="images/landscaping-3.webp" alt="Garden Landscaping"></div>
+                            <div class="gallery-photo"><img src="images/image.webp" alt="Professional Landscaping"></div>
+                            <div class="gallery-photo"><img src="images/image1.webp" alt="Landscape Transformation"></div>
                         </div>
                     </div>
                 </div>
@@ -609,9 +618,9 @@
                             <p>Professional mowing, edging, and weekly lawn care</p>
                         </div>
                         <div class="service-gallery-grid">
-                            <div class="gallery-photo"><img src="images/lawn-care-1.jpg" alt="Lawn Care"></div>
-                            <div class="gallery-photo"><img src="images/lawn-care-2.jpg" alt="Lawn Mowing"></div>
-                            <div class="gallery-photo"><img src="images/lawn-care-3.jpg" alt="Lawn Maintenance"></div>
+                            <div class="gallery-photo"><img src="images/lawn-care-1.webp" alt="Lawn Care"></div>
+                            <div class="gallery-photo"><img src="images/lawn-care-2.webp" alt="Lawn Mowing"></div>
+                            <div class="gallery-photo"><img src="images/lawn-care-3.webp" alt="Lawn Maintenance"></div>
                         </div>
                     </div>
 
@@ -621,9 +630,9 @@
                             <p>Expert tree care and maintenance</p>
                         </div>
                         <div class="service-gallery-grid">
-                            <div class="gallery-photo"><img src="images/tree-service-1.jpg" alt="Tree Trimming"></div>
-                            <div class="gallery-photo"><img src="images/tree-service-2.jpg" alt="Tree Pruning"></div>
-                            <div class="gallery-photo"><img src="images/tree-service-3.jpg" alt="Palm Trimming"></div>
+                            <div class="gallery-photo"><img src="images/tree-service-1.webp" alt="Tree Trimming"></div>
+                            <div class="gallery-photo"><img src="images/tree-service-2.webp" alt="Tree Pruning"></div>
+                            <div class="gallery-photo"><img src="images/tree-service-3.webp" alt="Palm Trimming"></div>
                         </div>
                     </div>
 
@@ -633,9 +642,9 @@
                             <p>New lawn installation and sod replacement</p>
                         </div>
                         <div class="service-gallery-grid">
-                            <div class="gallery-photo"><img src="images/sod-installation-2.jpg" alt="Sod Installation"></div>
-                            <div class="gallery-photo"><img src="images/sod-installation-3.jpg" alt="New Sod"></div>
-                            <div class="gallery-photo"><img src="images/rock-mulch-1.jpg" alt="Sod Laying"></div>
+                            <div class="gallery-photo"><img src="images/sod-installation-1.webp" alt="Sod Installation"></div>
+                            <div class="gallery-photo"><img src="images/sod-installation-2.webp" alt="New Sod"></div>
+                            <div class="gallery-photo"><img src="images/sod-installation-3.webp" alt="Sod Laying"></div>
                         </div>
                     </div>
                 </div>
@@ -648,9 +657,9 @@
                             <p>Decorative rock and mulch for landscape beds</p>
                         </div>
                         <div class="service-gallery-grid">
-                            <div class="gallery-photo"><img src="images/rock-mulch-2.jpg" alt="Rock Installation"></div>
-                            <div class="gallery-photo"><img src="images/rock-mulch-3.jpg" alt="Mulch Beds"></div>
-                            <div class="gallery-photo"><img src="images/yard-cleanups-1.jpg" alt="Rock Landscaping"></div>
+                            <div class="gallery-photo"><img src="images/rock-mulch-1.webp" alt="Rock Installation"></div>
+                            <div class="gallery-photo"><img src="images/rock-mulch-2.webp" alt="Mulch Beds"></div>
+                            <div class="gallery-photo"><img src="images/rock-mulch-3.webp" alt="Rock Landscaping"></div>
                         </div>
                     </div>
 
@@ -660,9 +669,9 @@
                             <p>Spring and fall cleanup services</p>
                         </div>
                         <div class="service-gallery-grid">
-                            <div class="gallery-photo"><img src="images/yard-cleanups-2.jpg" alt="Yard Cleanup"></div>
-                            <div class="gallery-photo"><img src="images/yard-cleanups-3.jpg" alt="Fall Cleanup"></div>
-                            <div class="gallery-photo"><img src="images/debris-removal-1.jpg" alt="Spring Cleanup"></div>
+                            <div class="gallery-photo"><img src="images/yard-cleanups-1.webp" alt="Yard Cleanup"></div>
+                            <div class="gallery-photo"><img src="images/yard-cleanups-2.webp" alt="Fall Cleanup"></div>
+                            <div class="gallery-photo"><img src="images/yard-cleanups-3.webp" alt="Spring Cleanup"></div>
                         </div>
                     </div>
 
@@ -675,8 +684,8 @@
                             <div class="gallery-photo">
                                 <video src="images/brush-clearing-3.mp4" muted loop playsinline></video>
                             </div>
-                            <div class="gallery-photo"><img src="images/brush-clearing-2.jpg" alt="Vegetation Removal"></div>
-                            <div class="gallery-photo"><img src="images/brush-clearing-1.jpg" alt="Brush Clearing"></div>
+                            <div class="gallery-photo"><img src="images/brush-clearing-1.webp" alt="Brush Clearing"></div>
+                            <div class="gallery-photo"><img src="images/brush-clearing-2.webp" alt="Vegetation Removal"></div>
                         </div>
                     </div>
                 </div>
@@ -689,9 +698,9 @@
                             <p>Hauling and disposal of yard waste</p>
                         </div>
                         <div class="service-gallery-grid">
-                            <div class="gallery-photo"><img src="images/debris-removal-2.jpg" alt="Debris Removal"></div>
-                            <div class="gallery-photo"><img src="images/debris-removal-3.jpg" alt="Waste Hauling"></div>
-                            <div class="gallery-photo"><img src="images/tractor-work-1.jpg" alt="Yard Waste"></div>
+                            <div class="gallery-photo"><img src="images/debris-removal-1.webp" alt="Debris Removal"></div>
+                            <div class="gallery-photo"><img src="images/debris-removal-2.webp" alt="Waste Hauling"></div>
+                            <div class="gallery-photo"><img src="images/debris-removal-3.webp" alt="Yard Waste"></div>
                         </div>
                     </div>
 
@@ -701,9 +710,9 @@
                             <p>Heavy equipment services for large properties</p>
                         </div>
                         <div class="service-gallery-grid">
-                            <div class="gallery-photo"><img src="images/tractor-work-2.jpg" alt="Tractor Work"></div>
-                            <div class="gallery-photo"><img src="images/tractor-work-3.jpg" alt="Heavy Equipment"></div>
-                            <div class="gallery-photo"><img src="images/land-clearing-1.jpg" alt="Site Work"></div>
+                            <div class="gallery-photo"><img src="images/tractor-work-1.webp" alt="Tractor Work"></div>
+                            <div class="gallery-photo"><img src="images/tractor-work-2.webp" alt="Heavy Equipment"></div>
+                            <div class="gallery-photo"><img src="images/tractor-work-3.webp" alt="Site Work"></div>
                         </div>
                     </div>
 
@@ -713,9 +722,9 @@
                             <p>System installation and maintenance</p>
                         </div>
                         <div class="service-gallery-grid">
-                            <div class="gallery-photo"><img src="images/irrigation-1.jpg" alt="Irrigation System"></div>
-                            <div class="gallery-photo"><img src="images/irrigation-2.jpg" alt="Sprinkler Installation"></div>
-                            <div class="gallery-photo"><img src="images/pressure-washing-1.jpg" alt="Irrigation Maintenance"></div>
+                            <div class="gallery-photo"><img src="images/irrigation-1.webp" alt="Irrigation System"></div>
+                            <div class="gallery-photo"><img src="images/irrigation-2.webp" alt="Sprinkler Installation"></div>
+                            <div class="gallery-photo"><img src="images/irrigation-1.webp" alt="Irrigation Maintenance"></div>
                         </div>
                     </div>
                 </div>
@@ -728,9 +737,9 @@
                             <p>Site preparation and land development</p>
                         </div>
                         <div class="service-gallery-grid">
-                            <div class="gallery-photo"><img src="images/land-clearing-2.jpg" alt="Land Clearing"></div>
-                            <div class="gallery-photo"><img src="images/land-clearing-3.jpg" alt="Site Clearing"></div>
-                            <div class="gallery-photo"><img src="images/hardscaping-2.jpg" alt="Property Clearing"></div>
+                            <div class="gallery-photo"><img src="images/land-clearing-1.webp" alt="Land Clearing"></div>
+                            <div class="gallery-photo"><img src="images/land-clearing-2.webp" alt="Site Clearing"></div>
+                            <div class="gallery-photo"><img src="images/land-clearing-3.webp" alt="Property Clearing"></div>
                         </div>
                     </div>
 
@@ -740,9 +749,9 @@
                             <p>Durable outdoor structures and stonework</p>
                         </div>
                         <div class="service-gallery-grid">
-                            <div class="gallery-photo"><img src="images/hardscaping-3.jpg" alt="Retaining Wall"></div>
-                            <div class="gallery-photo"><img src="images/hardscape1.jpg" alt="Hardscaping"></div>
-                            <div class="gallery-photo"><img src="images/pressure-washing-2.jpg" alt="Pavers"></div>
+                            <div class="gallery-photo"><img src="images/hardscaping-1.webp" alt="Retaining Wall"></div>
+                            <div class="gallery-photo"><img src="images/hardscaping-2.webp" alt="Hardscaping"></div>
+                            <div class="gallery-photo"><img src="images/hardscaping-3.webp" alt="Pavers"></div>
                         </div>
                     </div>
 
@@ -752,9 +761,9 @@
                             <p>Power washing for driveways, patios, and more</p>
                         </div>
                         <div class="service-gallery-grid">
-                            <div class="gallery-photo"><img src="images/pressure-washing-3.jpg" alt="Pressure Washing"></div>
-                            <div class="gallery-photo"><img src="images/lawn-care-1.jpg" alt="Power Washing"></div>
-                            <div class="gallery-photo"><img src="images/lawn-care-2.jpg" alt="Driveway Cleaning"></div>
+                            <div class="gallery-photo"><img src="images/pressure-washing-1.webp" alt="Pressure Washing"></div>
+                            <div class="gallery-photo"><img src="images/pressure-washing-2.webp" alt="Power Washing"></div>
+                            <div class="gallery-photo"><img src="images/pressure-washing-3.webp" alt="Driveway Cleaning"></div>
                         </div>
                     </div>
                 </div>
@@ -775,8 +784,8 @@
                             <p>Residential Property - Lecanto, FL</p>
                         </div>
                         <div class="comparison-slider" data-slider="1">
-                            <img src="images/before-1.jpg" alt="Before" class="before-image">
-                            <img src="images/after-1.jpg" alt="After" class="after-image">
+                            <img src="images/before-1.webp" alt="Before" class="before-image">
+                            <img src="images/after-1.webp" alt="After" class="after-image">
                             <div class="slider-handle"></div>
                             <div class="slider-label before">BEFORE</div>
                             <div class="slider-label after">AFTER</div>
@@ -789,8 +798,8 @@
                             <p>Full Property Transformation</p>
                         </div>
                         <div class="comparison-slider" data-slider="2">
-                            <img src="images/before-2.jpg" alt="Before" class="before-image">
-                            <img src="images/after-2.jpg" alt="After" class="after-image">
+                            <img src="images/before-2.webp" alt="Before" class="before-image">
+                            <img src="images/after-2.webp" alt="After" class="after-image">
                             <div class="slider-handle"></div>
                             <div class="slider-label before">BEFORE</div>
                             <div class="slider-label after">AFTER</div>
@@ -803,8 +812,8 @@
                             <p>Overgrown Property Reclaimed</p>
                         </div>
                         <div class="comparison-slider" data-slider="3">
-                            <img src="images/before-3.jpg" alt="Before" class="before-image">
-                            <img src="images/after-3.jpg" alt="After" class="after-image">
+                            <img src="images/before-3.webp" alt="Before" class="before-image">
+                            <img src="images/after-3.webp" alt="After" class="after-image">
                             <div class="slider-handle"></div>
                             <div class="slider-label before">BEFORE</div>
                             <div class="slider-label after">AFTER</div>
@@ -817,8 +826,8 @@
                             <p>Professional Curb Appeal Enhancement</p>
                         </div>
                         <div class="comparison-slider" data-slider="4">
-                            <img src="images/before-4.jpg" alt="Before" class="before-image">
-                            <img src="images/after-4.jpg" alt="After" class="after-image">
+                            <img src="images/before-4.webp" alt="Before" class="before-image">
+                            <img src="images/after-4.webp" alt="After" class="after-image">
                             <div class="slider-handle"></div>
                             <div class="slider-label before">BEFORE</div>
                             <div class="slider-label after">AFTER</div>
