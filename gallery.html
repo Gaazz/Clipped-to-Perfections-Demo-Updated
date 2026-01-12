@@ -1113,14 +1113,21 @@
             }
         });
 
-        // Before/After Slider functionality
+        // Before/After Slider functionality with sequential smooth auto-animation
         document.addEventListener('DOMContentLoaded', function() {
             const sliders = document.querySelectorAll('.comparison-slider');
+            let currentAnimatingIndex = -1;
+            let allAnimationsComplete = false;
             
-            sliders.forEach(slider => {
+            sliders.forEach((slider, index) => {
                 const handle = slider.querySelector('.slider-handle');
                 const afterImage = slider.querySelector('.after-image');
                 let isDragging = false;
+                let hasAnimated = false;
+                
+                // Initialize ALL sliders at center (50%) position on load
+                handle.style.left = '50%';
+                afterImage.style.clipPath = 'inset(0 0 0 50%)';
                 
                 function updateSlider(x) {
                     const rect = slider.getBoundingClientRect();
@@ -1131,9 +1138,69 @@
                     afterImage.style.clipPath = `inset(0 0 0 ${position}%)`;
                 }
                 
+                function updateSliderByPercent(percent) {
+                    const position = Math.max(0, Math.min(100, percent));
+                    handle.style.left = position + '%';
+                    afterImage.style.clipPath = `inset(0 0 0 ${position}%)`;
+                }
+                
+                // Auto-animation: Center (50%) → Right (100%) → Left (0%) → Center (50%)
+                function autoAnimate() {
+                    if (hasAnimated) return;
+                    hasAnimated = true;
+                    currentAnimatingIndex = index;
+                    
+                    // Already at center (50%) from initialization
+                    
+                    // Add smooth transition with hardware acceleration
+                    handle.style.transition = 'left 1.2s cubic-bezier(0.4, 0.0, 0.2, 1)';
+                    afterImage.style.transition = 'clip-path 1.2s cubic-bezier(0.4, 0.0, 0.2, 1)';
+                    handle.style.willChange = 'left';
+                    afterImage.style.willChange = 'clip-path';
+                    
+                    // STEP 1: After 300ms, slide to RIGHT (100%) - showing BEFORE image
+                    setTimeout(() => {
+                        updateSliderByPercent(100);
+                    }, 300);
+                    
+                    // STEP 2: After 1700ms total, slide to LEFT (0%) - showing AFTER image
+                    setTimeout(() => {
+                        updateSliderByPercent(0);
+                    }, 1700);
+                    
+                    // STEP 3: After 3100ms total, move back to CENTER (50%)
+                    setTimeout(() => {
+                        updateSliderByPercent(50);
+                    }, 3100);
+                    
+                    // Clean up and start next animation
+                    setTimeout(() => {
+                        handle.style.transition = '';
+                        afterImage.style.transition = '';
+                        handle.style.willChange = '';
+                        afterImage.style.willChange = '';
+                        
+                        // Start next slider animation
+                        if (index < sliders.length - 1) {
+                            triggerAnimation(index + 1);
+                        } else {
+                            allAnimationsComplete = true;
+                            currentAnimatingIndex = -1;
+                        }
+                    }, 4500);
+                }
+                
+                // Store animation function for later trigger
+                slider.animationFunction = autoAnimate;
+                
                 function startDrag(e) {
                     isDragging = true;
                     e.preventDefault();
+                    // Remove transitions when user starts dragging
+                    handle.style.transition = '';
+                    afterImage.style.transition = '';
+                    handle.style.willChange = '';
+                    afterImage.style.willChange = '';
                 }
                 
                 function drag(e) {
@@ -1160,9 +1227,40 @@
                 
                 // Click anywhere on slider to position
                 slider.addEventListener('click', function(e) {
-                    updateSlider(e.clientX);
+                    if (!isDragging) {
+                        updateSlider(e.clientX);
+                    }
                 });
             });
+            
+            // Function to trigger specific slider animation
+            function triggerAnimation(index) {
+                if (index >= 0 && index < sliders.length) {
+                    const slider = sliders[index];
+                    if (slider.animationFunction) {
+                        slider.animationFunction();
+                    }
+                }
+            }
+            
+            // Trigger first animation when first slider comes into view
+            const firstSlider = sliders[0];
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && currentAnimatingIndex === -1 && !allAnimationsComplete) {
+                        // Start the first animation
+                        setTimeout(() => {
+                            triggerAnimation(0);
+                        }, 500);
+                    }
+                });
+            }, {
+                threshold: 0.3 // Trigger when 30% visible
+            });
+            
+            if (firstSlider) {
+                observer.observe(firstSlider);
+            }
         });
     </script>
     

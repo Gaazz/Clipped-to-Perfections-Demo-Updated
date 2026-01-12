@@ -358,13 +358,12 @@
             maxZoom: 19
         }).addTo(map);
         
-        // Custom green marker icon
-        const greenIcon = L.divIcon({
-            className: 'custom-marker',
-            html: '<div style="background: #5cb85c; width: 30px; height: 30px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 3px solid white; box-shadow: 0 3px 10px rgba(0,0,0,0.3);"><div style="width: 12px; height: 12px; background: white; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg);"></div></div>',
-            iconSize: [30, 30],
-            iconAnchor: [15, 30],
-            popupAnchor: [0, -30]
+        // Custom lawn mower icon using image for service areas
+        const lawnMowerIcon = L.icon({
+            iconUrl: 'images/emojis.com lawn-mower-.png',
+            iconSize: [40, 40],
+            iconAnchor: [20, 20],
+            popupAnchor: [0, -20]
         });
         
         // Service area locations - ALL 5 LOCATIONS
@@ -376,9 +375,9 @@
             { name: 'Gainesville', coords: [29.6516, -82.3248], info: 'Full Service Available' }
         ];
         
-        // Add markers for each location
+        // Add markers for each service area location
         locations.forEach(location => {
-            L.marker(location.coords, { icon: greenIcon })
+            L.marker(location.coords, { icon: lawnMowerIcon })
                 .bindPopup(`<div style="text-align: center; font-family: Muli, sans-serif;"><strong style="color: #1e3a5f; font-size: 16px;">${location.name}</strong><br><span style="color: #5cb85c;">${location.info}</span><br><br><a href="tel:3522125603" style="background: #5cb85c; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 5px;">Call Now</a></div>`)
                 .addTo(map);
         });
