@@ -37,7 +37,7 @@
                     <ul>
                         <li><a href="index.html">HOME</a></li>
                         <li class="dropdown">
-                            <a href="#" onclick="return false;">SERVICES</a>
+                            <a href="#" class="dropdown-trigger">SERVICES</a>
                             <ul class="dropdown-menu">
                                 <li><a href="gallery.html#lawn-care">Lawn Care & Maintenance</a></li>
                                 <li><a href="gallery.html#landscaping">Landscaping</a></li>
@@ -134,8 +134,9 @@
                     
                     <h3 style="color: #5cb85c; margin-bottom: 15px; font-size: 20px;">Service Areas</h3>
                     <p style="font-size: 15px; line-height: 1.8; margin: 0; color: rgba(255,255,255,0.9);">
-                        Citrus County • Marion County<br>
-                        Ocala • Wildwood • Gainesville<br>
+                        Dade City • Spring Hill<br>
+                        Ocala • Lecanto<br>
+                        Crystal River • Inverness<br>
                         & Surrounding Areas
                     </p>
                 </div>
@@ -214,7 +215,7 @@
     // Mobile dropdown support (tap Services to expand/collapse)
     const dropdown = document.querySelector('.main-nav .dropdown');
     if (dropdown) {
-      const trigger = dropdown.querySelector('a');
+      const trigger = dropdown.querySelector('.dropdown-trigger');
       if (trigger) {
         trigger.addEventListener('click', (e) => {
           if (window.matchMedia('(max-width: 968px)').matches) {
@@ -222,10 +223,9 @@
             e.stopPropagation();
             
             // Toggle the dropdown
-            const isOpen = dropdown.classList.contains('dropdown--open');
             dropdown.classList.toggle('dropdown--open');
-            
-            console.log('Dropdown toggled:', !isOpen ? 'OPENED' : 'CLOSED');
+            const isOpen = dropdown.classList.contains('dropdown--open');
+            console.log('Dropdown toggled:', isOpen ? 'OPENED' : 'CLOSED');
           }
         });
       }

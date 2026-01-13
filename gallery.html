@@ -549,7 +549,7 @@
                     <ul>
                         <li><a href="index.html">HOME</a></li>
                         <li class="dropdown">
-                            <a href="#" onclick="return false;">SERVICES</a>
+                            <a href="#" class="dropdown-trigger">SERVICES</a>
                             <ul class="dropdown-menu">
                                 <li><a href="gallery.html#lawn-care">Lawn Care & Maintenance</a></li>
                                 <li><a href="gallery.html#landscaping">Landscaping</a></li>
@@ -785,8 +785,8 @@
                 <div class="transformations-grid">
                     <div class="transformation-item">
                         <div class="transformation-title">
-                            <h3>Complete Lawn Renovation</h3>
-                            <p>Residential Property - Lecanto, FL</p>
+                            <h3>Commercial Landscaping Renovation</h3>
+                            <p>Overgrown beds transformed with mulch and new plantings</p>
                         </div>
                         <div class="comparison-slider" data-slider="1">
                             <img src="images/before-1.webp" alt="Before" class="before-image">
@@ -799,8 +799,8 @@
 
                     <div class="transformation-item">
                         <div class="transformation-title">
-                            <h3>Landscape Redesign</h3>
-                            <p>Full Property Transformation</p>
+                            <h3>Commercial Sod Installation</h3>
+                            <p>Professional lawn installation from bare ground</p>
                         </div>
                         <div class="comparison-slider" data-slider="2">
                             <img src="images/before-2.webp" alt="Before" class="before-image">
@@ -813,8 +813,8 @@
 
                     <div class="transformation-item">
                         <div class="transformation-title">
-                            <h3>Yard Cleanup & Restoration</h3>
-                            <p>Overgrown Property Reclaimed</p>
+                            <h3>Land Clearing & Debris Removal</h3>
+                            <p>Overgrown residential lot completely cleared</p>
                         </div>
                         <div class="comparison-slider" data-slider="3">
                             <img src="images/before-3.webp" alt="Before" class="before-image">
@@ -827,8 +827,8 @@
 
                     <div class="transformation-item">
                         <div class="transformation-title">
-                            <h3>Commercial Property Upgrade</h3>
-                            <p>Professional Curb Appeal Enhancement</p>
+                            <h3>Brush Clearing & Yard Cleanup</h3>
+                            <p>Dense overgrowth removed and property restored</p>
                         </div>
                         <div class="comparison-slider" data-slider="4">
                             <img src="images/before-4.webp" alt="Before" class="before-image">
@@ -1286,7 +1286,7 @@
     // Mobile dropdown support (tap Services to expand/collapse)
     const dropdown = document.querySelector('.main-nav .dropdown');
     if (dropdown) {
-      const trigger = dropdown.querySelector('a');
+      const trigger = dropdown.querySelector('.dropdown-trigger');
       if (trigger) {
         trigger.addEventListener('click', (e) => {
           if (window.matchMedia('(max-width: 968px)').matches) {
@@ -1294,10 +1294,9 @@
             e.stopPropagation();
             
             // Toggle the dropdown
-            const isOpen = dropdown.classList.contains('dropdown--open');
             dropdown.classList.toggle('dropdown--open');
-            
-            console.log('Dropdown toggled:', !isOpen ? 'OPENED' : 'CLOSED');
+            const isOpen = dropdown.classList.contains('dropdown--open');
+            console.log('Dropdown toggled:', isOpen ? 'OPENED' : 'CLOSED');
           }
         });
       }
