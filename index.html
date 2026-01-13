@@ -88,7 +88,7 @@
         <section class="section section-gray">
             <div class="container">
                 <h2><a href="#">Professional Landscaping & Property Maintenance in Central Florida</a></h2>
-                <p>Clipped to Perfection provides reliable landscaping and property maintenance services for residential, commercial, and HOA properties throughout Citrus County and surrounding areas, including Ocala, Marion County, Wildwood, and Gainesville. We focus on consistent results, clean workmanship, and dependable service.</p>
+                <p>Clipped to Perfection provides reliable landscaping and property maintenance services for residential, commercial, and HOA properties throughout Central Florida, including Dade City, Spring Hill, Ocala, Lecanto, Crystal River, and Inverness. We focus on consistent results, clean workmanship, and dependable service.</p>
                 <p>From routine lawn maintenance to full landscaping upgrades, cleanups, hardscaping, and land clearing, we handle each property with attention to detail and care. Whether you need ongoing service or a one-time project, our goal is to improve curb appeal and keep your property looking its best year-round.</p>
             </div>
         </section>
@@ -207,11 +207,11 @@
                         <div class="service-areas-grid">
                             <div style="text-align: center; color: white; font-size: 18px; font-weight: 600; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; transition: all 0.3s;">
                                 <i class="fas fa-map-marker-alt" style="font-size: 24px; color: #5cb85c; margin-bottom: 10px; display: block;"></i>
-                                Citrus County
+                                Dade City
                             </div>
                             <div style="text-align: center; color: white; font-size: 18px; font-weight: 600; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; transition: all 0.3s;">
                                 <i class="fas fa-map-marker-alt" style="font-size: 24px; color: #5cb85c; margin-bottom: 10px; display: block;"></i>
-                                Marion County
+                                Spring Hill
                             </div>
                             <div style="text-align: center; color: white; font-size: 18px; font-weight: 600; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; transition: all 0.3s;">
                                 <i class="fas fa-map-marker-alt" style="font-size: 24px; color: #5cb85c; margin-bottom: 10px; display: block;"></i>
@@ -219,15 +219,15 @@
                             </div>
                             <div style="text-align: center; color: white; font-size: 18px; font-weight: 600; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; transition: all 0.3s;">
                                 <i class="fas fa-map-marker-alt" style="font-size: 24px; color: #5cb85c; margin-bottom: 10px; display: block;"></i>
-                                Wildwood
+                                Lecanto
                             </div>
                             <div style="text-align: center; color: white; font-size: 18px; font-weight: 600; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; transition: all 0.3s;">
                                 <i class="fas fa-map-marker-alt" style="font-size: 24px; color: #5cb85c; margin-bottom: 10px; display: block;"></i>
-                                Gainesville
+                                Crystal River
                             </div>
                             <div style="text-align: center; color: white; font-size: 18px; font-weight: 600; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; transition: all 0.3s;">
                                 <i class="fas fa-map-marker-alt" style="font-size: 24px; color: #5cb85c; margin-bottom: 10px; display: block;"></i>
-                                Surrounding Areas
+                                Inverness
                             </div>
                         </div>
                     </div>
@@ -301,8 +301,9 @@
                     
                     <h3 style="color: #5cb85c; margin-bottom: 15px; font-size: 20px;">Service Areas</h3>
                     <p style="font-size: 15px; line-height: 1.8; margin: 0; color: rgba(255,255,255,0.9);">
-                        Citrus County • Marion County<br>
-                        Ocala • Wildwood • Gainesville<br>
+                        Dade City • Spring Hill<br>
+                        Ocala • Lecanto<br>
+                        Crystal River • Inverness<br>
                         & Surrounding Areas
                     </p>
                 </div>
@@ -349,8 +350,8 @@
     
     <!-- Initialize Service Area Map -->
     <script>
-        // Initialize map centered on service area - ZOOMED OUT to level 8
-        const map = L.map('service-area-map').setView([29.2, -82.2], 8);
+        // Initialize map centered between Ocala and Dade City - ZOOMED IN to level 9
+        const map = L.map('service-area-map').setView([28.78, -82.36], 9);
         
         // Add OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -366,13 +367,14 @@
             popupAnchor: [0, -20]
         });
         
-        // Service area locations - ALL 5 LOCATIONS
+        // Service area locations - ALL 6 LOCATIONS
         const locations = [
-            { name: 'Citrus County', coords: [28.8472, -82.4808], info: 'Full Service Available' },
-            { name: 'Marion County', coords: [29.0500, -82.0800], info: 'Full Service Available' },
+            { name: 'Dade City', coords: [28.3646, -82.1959], info: 'Full Service Available' },
+            { name: 'Spring Hill', coords: [28.4800, -82.5331], info: 'Full Service Available' },
             { name: 'Ocala', coords: [29.1872, -82.1401], info: 'Full Service Available' },
-            { name: 'Wildwood', coords: [28.8708, -82.0373], info: 'Full Service Available' },
-            { name: 'Gainesville', coords: [29.6516, -82.3248], info: 'Full Service Available' }
+            { name: 'Lecanto', coords: [28.8397, -82.4821], info: 'Full Service Available' },
+            { name: 'Crystal River', coords: [28.9025, -82.5931], info: 'Full Service Available' },
+            { name: 'Inverness', coords: [28.8358, -82.3312], info: 'Full Service Available' }
         ];
         
         // Add markers for each service area location
