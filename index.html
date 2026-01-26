@@ -506,12 +506,13 @@
       });
     }
 
-    // Mobile dropdown support (tap Services to expand/collapse)
+    // Mobile dropdown support with BOTH click and touchstart for real iOS devices
     const dropdown = document.querySelector('.main-nav .dropdown');
     if (dropdown) {
       const trigger = dropdown.querySelector('.dropdown-trigger');
       if (trigger) {
-        trigger.addEventListener('click', (e) => {
+        // Prevent default link behavior and toggle dropdown
+        function handleDropdownToggle(e) {
           if (window.matchMedia('(max-width: 968px)').matches) {
             e.preventDefault();
             e.stopPropagation();
@@ -521,17 +522,24 @@
             const isOpen = dropdown.classList.contains('dropdown--open');
             console.log('Dropdown toggled:', isOpen ? 'OPENED' : 'CLOSED');
           }
-        });
+        }
+        
+        // Add both click and touchstart for iOS compatibility
+        trigger.addEventListener('click', handleDropdownToggle);
+        trigger.addEventListener('touchstart', handleDropdownToggle, { passive: false });
       }
       
-      // Close dropdown when clicking outside on mobile
-      document.addEventListener('click', (e) => {
+      // Close dropdown when clicking/touching outside on mobile
+      function closeDropdownOutside(e) {
         if (window.matchMedia('(max-width: 968px)').matches) {
           if (!dropdown.contains(e.target)) {
             dropdown.classList.remove('dropdown--open');
           }
         }
-      });
+      }
+      
+      document.addEventListener('click', closeDropdownOutside);
+      document.addEventListener('touchstart', closeDropdownOutside);
     }
   })();
 </script>
