@@ -580,12 +580,12 @@
 
     <!-- Hero Section with Video Background -->
     <section class="hero hero-no-overlay" style="position: relative; overflow: hidden; min-height: 400px; margin-top: -150px; padding-top: 475px; padding-bottom: 150px;">
-        <!-- Fallback Image (shows only if video fails to load) -->
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/hardscape1.webp') center center/cover; z-index: 1;"></div>
-        <!-- Video Background (on top of fallback) -->
-        <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2;">
+        <!-- Video Background (loads first, starts hidden) -->
+        <video id="hero-video" autoplay muted loop playsinline preload="auto" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; opacity: 0; transition: opacity 0.5s ease-in;">
             <source src="images/brush-clearing-3.mp4" type="video/mp4">
         </video>
+        <!-- Fallback Image (shows only while video loads) -->
+        <div id="hero-fallback" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/gallery-hero-fallback.webp') center center/cover; z-index: 1;"></div>
         <!-- Dark Overlay (on top of video) -->
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 3;"></div>
         <!-- Content (on top of everything) -->
@@ -594,6 +594,30 @@
             <p><strong>Browse Our Projects by Service Category</strong></p>
         </div>
     </section>
+    
+    <script>
+        // Fade in video smoothly once it's ready to play
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('hero-video');
+            const fallback = document.getElementById('hero-fallback');
+            
+            // When video can play, fade it in and hide fallback
+            video.addEventListener('canplay', function() {
+                video.style.opacity = '1';
+                // Hide fallback after video fades in
+                setTimeout(() => {
+                    fallback.style.display = 'none';
+                }, 500);
+            }, { once: true });
+            
+            // Fallback: if video takes too long (2 seconds), just show it anyway
+            setTimeout(() => {
+                if (video.style.opacity === '0') {
+                    video.style.opacity = '1';
+                }
+            }, 2000);
+        });
+    </script>
 
     <main>
         <div class="services-container">
