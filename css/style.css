@@ -1020,7 +1020,9 @@ body {
     background: transparent !important;
     display: none !important;
     padding: 0 !important;
-    overflow: hidden;
+    margin: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
   }
   
   .main-nav .dropdown-menu a {
@@ -1029,6 +1031,7 @@ body {
   
   .main-nav .dropdown.dropdown--open > .dropdown-menu {
     display: block !important;
+    height: auto !important;
   }
 }
 
