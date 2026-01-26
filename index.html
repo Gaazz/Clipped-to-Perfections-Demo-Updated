@@ -510,6 +510,8 @@
     const dropdown = document.querySelector('.main-nav .dropdown');
     if (dropdown) {
       const trigger = dropdown.querySelector('.dropdown-trigger');
+      let isTogglingDropdown = false; // Prevent event conflict
+      
       if (trigger) {
         // Prevent default link behavior and toggle dropdown
         function handleDropdownToggle(e) {
@@ -517,10 +519,18 @@
             e.preventDefault();
             e.stopPropagation();
             
+            // Set flag to prevent immediate closing
+            isTogglingDropdown = true;
+            
             // Toggle the dropdown
             dropdown.classList.toggle('dropdown--open');
             const isOpen = dropdown.classList.contains('dropdown--open');
             console.log('Dropdown toggled:', isOpen ? 'OPENED' : 'CLOSED');
+            
+            // Reset flag after a short delay
+            setTimeout(() => {
+              isTogglingDropdown = false;
+            }, 100);
           }
         }
         
@@ -532,6 +542,9 @@
       // Close dropdown when clicking/touching outside on mobile
       function closeDropdownOutside(e) {
         if (window.matchMedia('(max-width: 968px)').matches) {
+          // Don't close if we just toggled
+          if (isTogglingDropdown) return;
+          
           if (!dropdown.contains(e.target)) {
             dropdown.classList.remove('dropdown--open');
           }
