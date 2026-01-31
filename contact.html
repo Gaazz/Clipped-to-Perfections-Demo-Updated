@@ -84,13 +84,6 @@
                         <h2 style="margin-bottom: 15px; color: #1e3a5f; text-align: center; font-size: 36px;">Send Us a Message</h2>
                         <p style="color: #666; margin-bottom: 40px; text-align: center; font-size: 18px;">Fill out the form below and we'll get back to you as soon as possible with your free estimate.</p>
                         
-                        <!-- Success Message (hidden until form submits) -->
-                        <div id="formSuccess" style="display:none; text-align:center; padding: 40px 20px;">
-                            <div style="font-size: 48px; margin-bottom: 16px;">✅</div>
-                            <h3 style="color: #1e3a5f; font-size: 24px; margin-bottom: 10px;">Thank You!</h3>
-                            <p style="color: #555; font-size: 16px;">Your message has been received. We'll be in touch shortly with your free estimate.</p>
-                        </div>
-
                         <form id="contactForm" name="contact" style="display: flex; flex-direction: column; gap: 20px;">
                             
                             <div>
@@ -310,9 +303,8 @@
                 mode: 'no-cors'
             });
 
-            // Show success message, hide form
-            form.style.display = 'none';
-            document.getElementById('formSuccess').style.display = 'block';
+            // Redirect to success page
+            window.location.href = '/success';
         });
     </script>
 </body>
