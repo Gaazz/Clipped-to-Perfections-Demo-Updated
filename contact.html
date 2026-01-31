@@ -84,11 +84,14 @@
                         <h2 style="margin-bottom: 15px; color: #1e3a5f; text-align: center; font-size: 36px;">Send Us a Message</h2>
                         <p style="color: #666; margin-bottom: 40px; text-align: center; font-size: 18px;">Fill out the form below and we'll get back to you as soon as possible with your free estimate.</p>
                         
-                        <form name="contact" method="POST" action="/success" style="display: flex; flex-direction: column; gap: 20px;">
-                            <!-- Honeypot for spam protection -->
-                            <p style="display: none;">
-                                <label>Don't fill this out if you're human: <input name="bot-field"></label>
-                            </p>
+                        <!-- Success Message (hidden until form submits) -->
+                        <div id="formSuccess" style="display:none; text-align:center; padding: 40px 20px;">
+                            <div style="font-size: 48px; margin-bottom: 16px;">✅</div>
+                            <h3 style="color: #1e3a5f; font-size: 24px; margin-bottom: 10px;">Thank You!</h3>
+                            <p style="color: #555; font-size: 16px;">Your message has been received. We'll be in touch shortly with your free estimate.</p>
+                        </div>
+
+                        <form id="contactForm" name="contact" style="display: flex; flex-direction: column; gap: 20px;">
                             
                             <div>
                                 <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1e3a5f;">Name *</label>
@@ -109,22 +112,22 @@
                                 <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1e3a5f;">Service Needed</label>
                                 <select name="service" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px; transition: border-color 0.3s;">
                                     <option value="">Select a service...</option>
-                                    <option value="lawn-care">Lawn Care & Maintenance</option>
-                                    <option value="landscaping">Landscaping</option>
-                                    <option value="tree-trimming">Tree Trimming & Pruning</option>
-                                    <option value="sod">Sod Installation</option>
-                                    <option value="rock-mulch">Rock & Mulch Installation</option>
-                                    <option value="yard-cleanup">Yard Cleanups</option>
-                                    <option value="brush-clearing">Brush Clearing</option>
-                                    <option value="debris">Debris Removal</option>
-                                    <option value="tractor">Tractor Work</option>
-                                    <option value="irrigation">Irrigation Services</option>
-                                    <option value="land-clearing">Land Clearing</option>
-                                    <option value="hardscaping">Retaining Walls & Hardscaping</option>
-                                    <option value="lighting">Landscape Lighting</option>
-                                    <option value="property-management">Property Management</option>
-                                    <option value="pressure-washing">Pressure Washing</option>
-                                    <option value="other">Other Inquiries</option>
+                                    <option value="Lawn Care &amp; Maintenance">Lawn Care &amp; Maintenance</option>
+                                    <option value="Landscaping">Landscaping</option>
+                                    <option value="Tree Trimming &amp; Pruning">Tree Trimming &amp; Pruning</option>
+                                    <option value="Sod Installation">Sod Installation</option>
+                                    <option value="Rock &amp; Mulch Installation">Rock &amp; Mulch Installation</option>
+                                    <option value="Yard Cleanups">Yard Cleanups</option>
+                                    <option value="Brush Clearing">Brush Clearing</option>
+                                    <option value="Debris Removal">Debris Removal</option>
+                                    <option value="Tractor Work">Tractor Work</option>
+                                    <option value="Irrigation Services">Irrigation Services</option>
+                                    <option value="Land Clearing">Land Clearing</option>
+                                    <option value="Retaining Walls &amp; Hardscaping">Retaining Walls &amp; Hardscaping</option>
+                                    <option value="Landscape Lighting">Landscape Lighting</option>
+                                    <option value="Property Management">Property Management</option>
+                                    <option value="Pressure Washing">Pressure Washing</option>
+                                    <option value="Other Inquiries">Other Inquiries</option>
                                 </select>
                             </div>
                             
@@ -155,7 +158,7 @@
                     </div>
                     <div style="margin-bottom: 20px;">
                         <p style="font-size: 16px; margin-bottom: 5px; color: rgba(255,255,255,0.7);">Email</p>
-                        <p style="font-size: 18px; margin: 0;"><a href="/cdn-cgi/l/email-protection#690a050019190c0d1d06190c1b0f0c0a1d000607290e04080005470a0604" style="color: white; text-decoration: none;"><span class="__cf_email__" data-cfemail="beddd2d7cecedbdacad1cedbccd8dbddcad7d1d0fed9d3dfd7d290ddd1d3">[email&#160;protected]</span></a></p>
+                        <p style="font-size: 18px; margin: 0;"><a href="/cdn-cgi/l/email-protection#1f7c73766f6f7a7b6b706f7a6d797a7c6b7670715f78727e7673317c7072" style="color: white; text-decoration: none;"><span class="__cf_email__" data-cfemail="e487888d94948180908b948196828187908d8b8aa48389858d88ca878b89">[email&#160;protected]</span></a></p>
                     </div>
                     <div>
                         <p style="font-size: 16px; margin-bottom: 5px; color: rgba(255,255,255,0.7);">Address</p>
@@ -206,7 +209,7 @@
                 <i class="fas fa-phone"></i>
                 <span>Call Now<br><strong>(352) 212-5603</strong></span>
             </a>
-            <a href="/cdn-cgi/l/email-protection#1576797c65657071617a657067737076617c7a7b557278747c793b767a78" class="email-btn">
+            <a href="/cdn-cgi/l/email-protection#d3b0bfbaa3a3b6b7a7bca3b6a1b5b6b0a7babcbd93b4beb2babffdb0bcbe" class="email-btn">
                 <i class="fas fa-envelope"></i>
                 <span>Email Us</span>
             </a>
@@ -276,4 +279,41 @@
         if (window.matchMedia('(max-width: 968px)').matches) {
           // Check if tap is outside dropdown AND not on trigger
           if (!dropdown.contains(e.target)) {
-           
+                       dropdown.classList.remove('dropdown--open');
+          }
+        }
+      }
+
+      document.addEventListener('touchstart', closeDropdownOutside);
+      document.addEventListener('click', closeDropdownOutside);
+    </script>
+
+    <!-- Google Forms submission handler -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var form = this;
+            var formData = new FormData();
+
+            // Map fields to Google Form entry IDs
+            formData.append('entry.208553275', form.querySelector('[name="name"]').value);
+            formData.append('entry.1488905854', form.querySelector('[name="email"]').value);
+            formData.append('entry.1986378208', form.querySelector('[name="phone"]').value);
+            formData.append('entry.2055898904', form.querySelector('[name="service"]').value);
+            formData.append('entry.999364442', form.querySelector('[name="message"]').value);
+
+            // POST silently to Google Forms
+            fetch('https://docs.google.com/forms/d/e/1FAIpQLSf1w2-MJQJttF3Xys7FwVWAc9lR0S0t89VX4WzdgRzP-ro36Q/formResponse', {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            });
+
+            // Show success message, hide form
+            form.style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
