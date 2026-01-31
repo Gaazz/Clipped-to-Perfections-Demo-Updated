@@ -89,8 +89,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Muli:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Leaflet.js for interactive maps -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!-- Netlify Identity Widget -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 </head>
 <body>
     <!-- Top Bar -->
@@ -367,7 +366,7 @@
                     </div>
                     <div style="margin-bottom: 20px;">
                         <p style="font-size: 16px; margin-bottom: 5px; color: rgba(255,255,255,0.7);">Email</p>
-                        <p style="font-size: 18px; margin: 0;"><a href="mailto:clippedtoperfection@gmail.com" style="color: white; text-decoration: none;">clippedtoperfection@gmail.com</a></p>
+                        <p style="font-size: 18px; margin: 0;"><a href="/cdn-cgi/l/email-protection#0d6e61647d7d686979627d687f6b686e796462634d6a606c6461236e6260" style="color: white; text-decoration: none;"><span class="__cf_email__" data-cfemail="a6c5cacfd6d6c3c2d2c9d6c3d4c0c3c5d2cfc9c8e6c1cbc7cfca88c5c9cb">[email&#160;protected]</span></a></p>
                     </div>
                     <div>
                         <p style="font-size: 16px; margin-bottom: 5px; color: rgba(255,255,255,0.7);">Address</p>
@@ -420,7 +419,7 @@
                 <i class="fas fa-phone"></i>
                 <span>Call Now<br><strong>(352) 212-5603</strong></span>
             </a>
-            <a href="mailto:clippedtoperfection@gmail.com" class="email-btn">
+            <a href="/cdn-cgi/l/email-protection#3c5f50554c4c595848534c594e5a595f485553527c5b515d5550125f5351" class="email-btn">
                 <i class="fas fa-envelope"></i>
                 <span>Email Us</span>
             </a>
@@ -428,7 +427,7 @@
     </div>
 
     <!-- Leaflet.js -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
     <!-- Initialize Service Area Map -->
     <script>
@@ -547,18 +546,7 @@
   })();
 </script>
 
-<!-- Netlify Identity Redirect Script -->
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
+
 
 <script>
 // Auto-show contact popup ONCE per session on home page only
@@ -578,17 +566,4 @@ window.addEventListener('load', function() {
             container.classList.add('auto-show');
             
             // Remove classes after animation completes
-            setTimeout(function() {
-                popup.classList.remove('auto-show');
-                container.classList.remove('auto-show');
-            }, 3000);
-            
-            // Mark as shown for this session
-            sessionStorage.setItem('contactPopupShown', 'true');
-        }, 1000);
-    }
-});
-</script>
-
-</body>
-</html>
+            setTimeout(function(

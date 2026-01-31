@@ -84,7 +84,7 @@
                         <h2 style="margin-bottom: 15px; color: #1e3a5f; text-align: center; font-size: 36px;">Send Us a Message</h2>
                         <p style="color: #666; margin-bottom: 40px; text-align: center; font-size: 18px;">Fill out the form below and we'll get back to you as soon as possible with your free estimate.</p>
                         
-                        <form name="contact" method="POST" action="/success" netlify netlify-honeypot="bot-field" style="display: flex; flex-direction: column; gap: 20px;">
+                        <form name="contact" method="POST" action="/success" style="display: flex; flex-direction: column; gap: 20px;">
                             <!-- Honeypot for spam protection -->
                             <p style="display: none;">
                                 <label>Don't fill this out if you're human: <input name="bot-field"></label>
@@ -155,7 +155,7 @@
                     </div>
                     <div style="margin-bottom: 20px;">
                         <p style="font-size: 16px; margin-bottom: 5px; color: rgba(255,255,255,0.7);">Email</p>
-                        <p style="font-size: 18px; margin: 0;"><a href="mailto:clippedtoperfection@gmail.com" style="color: white; text-decoration: none;">clippedtoperfection@gmail.com</a></p>
+                        <p style="font-size: 18px; margin: 0;"><a href="/cdn-cgi/l/email-protection#690a050019190c0d1d06190c1b0f0c0a1d000607290e04080005470a0604" style="color: white; text-decoration: none;"><span class="__cf_email__" data-cfemail="beddd2d7cecedbdacad1cedbccd8dbddcad7d1d0fed9d3dfd7d290ddd1d3">[email&#160;protected]</span></a></p>
                     </div>
                     <div>
                         <p style="font-size: 16px; margin-bottom: 5px; color: rgba(255,255,255,0.7);">Address</p>
@@ -206,14 +206,14 @@
                 <i class="fas fa-phone"></i>
                 <span>Call Now<br><strong>(352) 212-5603</strong></span>
             </a>
-            <a href="mailto:clippedtoperfection@gmail.com" class="email-btn">
+            <a href="/cdn-cgi/l/email-protection#1576797c65657071617a657067737076617c7a7b557278747c793b767a78" class="email-btn">
                 <i class="fas fa-envelope"></i>
                 <span>Email Us</span>
             </a>
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         const floatingContact = document.querySelector('.floating-contact');
         const floatingBtn = document.querySelector('.floating-btn');
         const contactPopup = document.querySelector('.contact-popup');
@@ -247,12 +247,14 @@
       });
     }
 
-    // Mobile dropdown support (tap Services to expand/collapse)
+    // Mobile dropdown support - tap SERVICES to toggle open/close
     const dropdown = document.querySelector('.main-nav .dropdown');
     if (dropdown) {
       const trigger = dropdown.querySelector('.dropdown-trigger');
+      
       if (trigger) {
-        trigger.addEventListener('click', (e) => {
+        // Handle dropdown toggle on touch devices
+        function handleDropdownToggle(e) {
           if (window.matchMedia('(max-width: 968px)').matches) {
             e.preventDefault();
             e.stopPropagation();
@@ -262,19 +264,16 @@
             const isOpen = dropdown.classList.contains('dropdown--open');
             console.log('Dropdown toggled:', isOpen ? 'OPENED' : 'CLOSED');
           }
-        });
+        }
+        
+        // Use touchend instead of touchstart for better mobile behavior
+        trigger.addEventListener('touchend', handleDropdownToggle, { passive: false });
+        trigger.addEventListener('click', handleDropdownToggle);
       }
       
-      // Close dropdown when clicking outside on mobile
-      document.addEventListener('click', (e) => {
+      // Close dropdown when touching outside on mobile
+      function closeDropdownOutside(e) {
         if (window.matchMedia('(max-width: 968px)').matches) {
+          // Check if tap is outside dropdown AND not on trigger
           if (!dropdown.contains(e.target)) {
-            dropdown.classList.remove('dropdown--open');
-          }
-        }
-      });
-    }
-  })();
-</script>
-</body>
-</html>
+           
