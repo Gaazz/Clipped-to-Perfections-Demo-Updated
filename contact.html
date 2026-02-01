@@ -7,6 +7,25 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Muli:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Mobile optimization for contact form card */
+        @media (max-width: 968px) {
+            .contact-form-card {
+                padding: 30px 20px !important;
+            }
+            .contact-form-card h2 {
+                font-size: 28px !important;
+            }
+            .contact-form-card p {
+                font-size: 16px !important;
+            }
+            .contact-form-card input,
+            .contact-form-card select,
+            .contact-form-card textarea {
+                font-size: 16px !important; /* Prevents iOS zoom on focus */
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Top Bar -->
@@ -78,7 +97,7 @@
         <section class="section">
             <div class="container">
                 <div style="max-width: 800px; margin: 0 auto;">
-                    <div style="background: white; padding: 60px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                    <div class="contact-form-card" style="background: white; padding: 60px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
                         <h2 style="margin-bottom: 15px; color: #1e3a5f; text-align: center; font-size: 36px;">Send Us a Message</h2>
                         <p style="color: #666; margin-bottom: 40px; text-align: center; font-size: 18px;">Fill out the form below and we'll get back to you as soon as possible with your free estimate.</p>
                         
@@ -134,19 +153,87 @@
         </section>
     </main>
 
-    <!-- KEEP ALL YOUR EXISTING FOOTER AND SCRIPTS ABOVE -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3 style="color: #5cb85c; margin-bottom: 25px; font-size: 24px;">Get In Touch</h3>
+                    <div style="margin-bottom: 20px;">
+                        <p style="font-size: 16px; margin-bottom: 5px; color: rgba(255,255,255,0.7);">Phone</p>
+                        <p style="font-size: 20px; margin: 0;"><a href="tel:3522125603" style="color: white; text-decoration: none; font-weight: 700;">(352) 212-5603</a></p>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <p style="font-size: 16px; margin-bottom: 5px; color: rgba(255,255,255,0.7);">Email</p>
+                        <p style="font-size: 18px; margin: 0;"><a href="/cdn-cgi/l/email-protection#0f6c63667f7f6a6b7b607f6a7d696a6c7b6660614f68626e6663216c6062" style="color: white; text-decoration: none;"><span class="__cf_email__" data-cfemail="61020d0811110405150e11041307040215080e0f21060c00080d4f020e0c">[email&#160;protected]</span></a></p>
+                    </div>
+                    <div>
+                        <p style="font-size: 16px; margin-bottom: 5px; color: rgba(255,255,255,0.7);">Address</p>
+                        <p style="font-size: 16px; margin: 0; line-height: 1.6;">1087 North Sloan Terrace<br>Lecanto, FL 34461</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="color: #5cb85c; margin-bottom: 25px; font-size: 24px;">Hours</h3>
+                    <p style="font-size: 18px; font-weight: 600; margin: 0 0 5px 0;">Monday - Friday</p>
+                    <p style="font-size: 16px; color: rgba(255,255,255,0.9); margin: 0 0 30px 0;">9:00 AM - 5:00 PM</p>
+                    
+                    <h3 style="color: #5cb85c; margin-bottom: 15px; font-size: 20px;">Service Areas</h3>
+                    <p style="font-size: 15px; line-height: 1.8; margin: 0; color: rgba(255,255,255,0.9);">
+                        Dade City • Spring Hill<br>
+                        Ocala • Lecanto<br>
+                        Crystal River • Inverness<br>
+                        & Surrounding Areas
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 style="color: #5cb85c; margin-bottom: 25px; font-size: 24px;">Quick Links</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0 0 30px 0;">
+                        <li style="margin-bottom: 12px;"><a href="index.html" style="color: white; text-decoration: none; font-size: 16px;">Home</a></li>
+                        <li style="margin-bottom: 12px;"><a href="gallery.html" style="color: white; text-decoration: none; font-size: 16px;">Gallery</a></li>
+                        <li style="margin-bottom: 12px;"><a href="contact.html" style="color: white; text-decoration: none; font-size: 16px;">Contact Us</a></li>
+                    </ul>
+                    
+                    <a href="contact.html" style="background: #5cb85c; color: white; padding: 14px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 16px; display: inline-block; transition: all 0.3s; box-shadow: 0 4px 15px rgba(92,184,92,0.3);">Get Free Estimate</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Clipped to Perfection. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Google Forms Submission Script -->
+    <!-- Floating Contact Button -->
+    <div class="floating-contact">
+        <button class="floating-btn" aria-label="Contact Us">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+        <div class="contact-popup">
+            <h3>Contact Us</h3>
+            <a href="tel:3522125603" class="call-btn">
+                <i class="fas fa-phone"></i>
+                <span>Call Now<br><strong>(352) 212-5603</strong></span>
+            </a>
+            <a href="/cdn-cgi/l/email-protection#7f1c13160f0f1a1b0b100f1a0d191a1c0b1610113f18121e1613511c1012" class="email-btn">
+                <i class="fas fa-envelope"></i>
+                <span>Email Us</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Google Forms Submission Script (DO NOT TOUCH) -->
     <script>
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
         var form = this;
         var formData = new FormData();
-        formData.append('entry.2129619360', form.querySelector('[name="name"]').value);
-        formData.append('entry.243665699', form.querySelector('[name="email"]').value);
-        formData.append('entry.2104184592', form.querySelector('[name="phone"]').value);
-        formData.append('entry.1342116328', form.querySelector('[name="service"]').value);
-        formData.append('entry.115339051', form.querySelector('[name="message"]').value);
+        formData.append('entry.208553275', form.querySelector('[name="name"]').value);
+        formData.append('entry.1488905854', form.querySelector('[name="email"]').value);
+        formData.append('entry.1986378208', form.querySelector('[name="phone"]').value);
+        formData.append('entry.2055898904', form.querySelector('[name="service"]').value);
+        formData.append('entry.999364442', form.querySelector('[name="message"]').value);
 
         fetch('https://docs.google.com/forms/d/e/1FAIpQLSf1w2-MJQJttF3Xys7FwVWAc9lR0S0t89VX4WzdgRzP-ro36Q/formResponse', {
             method: 'POST',
@@ -159,5 +246,75 @@
         });
     });
     </script>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+    <!-- Floating contact button toggle -->
+    <script>
+        const floatingContact = document.querySelector('.floating-contact');
+        const floatingBtn = document.querySelector('.floating-btn');
+        const contactPopup = document.querySelector('.contact-popup');
+        
+        floatingBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            floatingContact.classList.toggle('active');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!floatingContact.contains(e.target)) {
+                floatingContact.classList.remove('active');
+            }
+        });
+        
+        contactPopup.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    </script>
+
+    <!-- Mobile hamburger nav + dropdown -->
+    <script>
+    (function () {
+        const header = document.querySelector('.header');
+        const toggle = document.querySelector('.nav-toggle');
+        const nav = document.getElementById('primary-nav');
+
+        if (header && toggle && nav) {
+            toggle.addEventListener('click', () => {
+                const isOpen = header.classList.toggle('header--open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+
+        const dropdown = document.querySelector('.main-nav .dropdown');
+        if (dropdown) {
+            const trigger = dropdown.querySelector('.dropdown-trigger');
+
+            if (trigger) {
+                function handleDropdownToggle(e) {
+                    if (window.matchMedia('(max-width: 968px)').matches) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dropdown.classList.toggle('dropdown--open');
+                    }
+                }
+
+                trigger.addEventListener('touchend', handleDropdownToggle, { passive: false });
+                trigger.addEventListener('click', handleDropdownToggle);
+            }
+
+            function closeDropdownOutside(e) {
+                if (window.matchMedia('(max-width: 968px)').matches) {
+                    if (!dropdown.contains(e.target)) {
+                        dropdown.classList.remove('dropdown--open');
+                    }
+                }
+            }
+
+            document.addEventListener('touchend', closeDropdownOutside);
+            document.addEventListener('click', closeDropdownOutside);
+        }
+    })();
+    </script>
+
 </body>
 </html>
