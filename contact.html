@@ -84,7 +84,11 @@
                         <h2 style="margin-bottom: 15px; color: #1e3a5f; text-align: center; font-size: 36px;">Send Us a Message</h2>
                         <p style="color: #666; margin-bottom: 40px; text-align: center; font-size: 18px;">Fill out the form below and we'll get back to you as soon as possible with your free estimate.</p>
                         
-                        <form id="contactForm" name="contact" style="display: flex; flex-direction: column; gap: 20px;">
+                        <form name="contact" method="POST" action="/success" netlify netlify-honeypot="bot-field" style="display: flex; flex-direction: column; gap: 20px;">
+                            <!-- Honeypot for spam protection -->
+                            <p style="display: none;">
+                                <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                            </p>
                             
                             <div>
                                 <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1e3a5f;">Name *</label>
@@ -105,22 +109,22 @@
                                 <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1e3a5f;">Service Needed</label>
                                 <select name="service" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px; transition: border-color 0.3s;">
                                     <option value="">Select a service...</option>
-                                    <option value="Lawn Care &amp; Maintenance">Lawn Care &amp; Maintenance</option>
-                                    <option value="Landscaping">Landscaping</option>
-                                    <option value="Tree Trimming &amp; Pruning">Tree Trimming &amp; Pruning</option>
-                                    <option value="Sod Installation">Sod Installation</option>
-                                    <option value="Rock &amp; Mulch Installation">Rock &amp; Mulch Installation</option>
-                                    <option value="Yard Cleanups">Yard Cleanups</option>
-                                    <option value="Brush Clearing">Brush Clearing</option>
-                                    <option value="Debris Removal">Debris Removal</option>
-                                    <option value="Tractor Work">Tractor Work</option>
-                                    <option value="Irrigation Services">Irrigation Services</option>
-                                    <option value="Land Clearing">Land Clearing</option>
-                                    <option value="Retaining Walls &amp; Hardscaping">Retaining Walls &amp; Hardscaping</option>
-                                    <option value="Landscape Lighting">Landscape Lighting</option>
-                                    <option value="Property Management">Property Management</option>
-                                    <option value="Pressure Washing">Pressure Washing</option>
-                                    <option value="Other Inquiries">Other Inquiries</option>
+                                    <option value="lawn-care">Lawn Care & Maintenance</option>
+                                    <option value="landscaping">Landscaping</option>
+                                    <option value="tree-trimming">Tree Trimming & Pruning</option>
+                                    <option value="sod">Sod Installation</option>
+                                    <option value="rock-mulch">Rock & Mulch Installation</option>
+                                    <option value="yard-cleanup">Yard Cleanups</option>
+                                    <option value="brush-clearing">Brush Clearing</option>
+                                    <option value="debris">Debris Removal</option>
+                                    <option value="tractor">Tractor Work</option>
+                                    <option value="irrigation">Irrigation Services</option>
+                                    <option value="land-clearing">Land Clearing</option>
+                                    <option value="hardscaping">Retaining Walls & Hardscaping</option>
+                                    <option value="lighting">Landscape Lighting</option>
+                                    <option value="property-management">Property Management</option>
+                                    <option value="pressure-washing">Pressure Washing</option>
+                                    <option value="other">Other Inquiries</option>
                                 </select>
                             </div>
                             
@@ -151,7 +155,7 @@
                     </div>
                     <div style="margin-bottom: 20px;">
                         <p style="font-size: 16px; margin-bottom: 5px; color: rgba(255,255,255,0.7);">Email</p>
-                        <p style="font-size: 18px; margin: 0;"><a href="/cdn-cgi/l/email-protection#1f7c73766f6f7a7b6b706f7a6d797a7c6b7670715f78727e7673317c7072" style="color: white; text-decoration: none;"><span class="__cf_email__" data-cfemail="e487888d94948180908b948196828187908d8b8aa48389858d88ca878b89">[email&#160;protected]</span></a></p>
+                        <p style="font-size: 18px; margin: 0;"><a href="/cdn-cgi/l/email-protection#ec8f80859c9c898898839c899e8a898f98858382ac8b818d8580c28f8381" style="color: white; text-decoration: none;"><span class="__cf_email__" data-cfemail="2d4e41445d5d484959425d485f4b484e594442436d4a404c4441034e4240">[email&#160;protected]</span></a></p>
                     </div>
                     <div>
                         <p style="font-size: 16px; margin-bottom: 5px; color: rgba(255,255,255,0.7);">Address</p>
@@ -202,7 +206,7 @@
                 <i class="fas fa-phone"></i>
                 <span>Call Now<br><strong>(352) 212-5603</strong></span>
             </a>
-            <a href="/cdn-cgi/l/email-protection#d3b0bfbaa3a3b6b7a7bca3b6a1b5b6b0a7babcbd93b4beb2babffdb0bcbe" class="email-btn">
+            <a href="/cdn-cgi/l/email-protection#62010e0b12120706160d120710040701160b0d0c22050f030b0e4c010d0f" class="email-btn">
                 <i class="fas fa-envelope"></i>
                 <span>Email Us</span>
             </a>
@@ -272,14 +276,16 @@
         if (window.matchMedia('(max-width: 968px)').matches) {
           // Check if tap is outside dropdown AND not on trigger
           if (!dropdown.contains(e.target)) {
-                       dropdown.classList.remove('dropdown--open');
+            dropdown.classList.remove('dropdown--open');
           }
         }
       }
 
       document.addEventListener('touchstart', closeDropdownOutside);
       document.addEventListener('click', closeDropdownOutside);
-    </script>
+    }
+  })();
+</script>
 
     <!-- Google Forms submission handler -->
     <script>
