@@ -84,11 +84,7 @@
                         <h2 style="margin-bottom: 15px; color: #1e3a5f; text-align: center; font-size: 36px;">Send Us a Message</h2>
                         <p style="color: #666; margin-bottom: 40px; text-align: center; font-size: 18px;">Fill out the form below and we'll get back to you as soon as possible with your free estimate.</p>
                         
-                        <form name="contact" method="POST" action="/success" netlify netlify-honeypot="bot-field" style="display: flex; flex-direction: column; gap: 20px;">
-                            <!-- Honeypot for spam protection -->
-                            <p style="display: none;">
-                                <label>Don't fill this out if you're human: <input name="bot-field"></label>
-                            </p>
+                        <form id="contactForm" style="display: flex; flex-direction: column; gap: 20px;">
                             
                             <div>
                                 <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1e3a5f;">Name *</label>
@@ -144,9 +140,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <!-- Footer Content -->
             <div class="footer-content">
-                <!-- Contact Info -->
                 <div>
                     <h3 style="color: #5cb85c; margin-bottom: 25px; font-size: 24px;">Get In Touch</h3>
                     <div style="margin-bottom: 20px;">
@@ -195,7 +189,6 @@
         </div>
     </footer>
 
-    <!-- Floating Contact Button -->
     <div class="floating-contact">
         <button class="floating-btn" aria-label="Contact Us">
             <i class="fas fa-comment-dots"></i>
@@ -213,7 +206,8 @@
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
         const floatingContact = document.querySelector('.floating-contact');
         const floatingBtn = document.querySelector('.floating-btn');
         const contactPopup = document.querySelector('.contact-popup');
@@ -247,34 +241,25 @@
       });
     }
 
-    // Mobile dropdown support - tap SERVICES to toggle open/close
     const dropdown = document.querySelector('.main-nav .dropdown');
     if (dropdown) {
       const trigger = dropdown.querySelector('.dropdown-trigger');
       
       if (trigger) {
-        // Handle dropdown toggle on touch devices
         function handleDropdownToggle(e) {
           if (window.matchMedia('(max-width: 968px)').matches) {
             e.preventDefault();
             e.stopPropagation();
-            
-            // Toggle the dropdown
             dropdown.classList.toggle('dropdown--open');
-            const isOpen = dropdown.classList.contains('dropdown--open');
-            console.log('Dropdown toggled:', isOpen ? 'OPENED' : 'CLOSED');
           }
         }
         
-        // Use touchend instead of touchstart for better mobile behavior
         trigger.addEventListener('touchend', handleDropdownToggle, { passive: false });
         trigger.addEventListener('click', handleDropdownToggle);
       }
       
-      // Close dropdown when touching outside on mobile
       function closeDropdownOutside(e) {
         if (window.matchMedia('(max-width: 968px)').matches) {
-          // Check if tap is outside dropdown AND not on trigger
           if (!dropdown.contains(e.target)) {
             dropdown.classList.remove('dropdown--open');
           }
@@ -287,7 +272,6 @@
   })();
 </script>
 
-    <!-- Google Forms submission handler -->
     <script>
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -295,14 +279,12 @@
             var form = this;
             var formData = new FormData();
 
-            // Map fields to Google Form entry IDs
             formData.append('entry.208553275', form.querySelector('[name="name"]').value);
             formData.append('entry.1488905854', form.querySelector('[name="email"]').value);
             formData.append('entry.1986378208', form.querySelector('[name="phone"]').value);
             formData.append('entry.2055898904', form.querySelector('[name="service"]').value);
             formData.append('entry.999364442', form.querySelector('[name="message"]').value);
 
-            // POST silently to Google Forms, then redirect
             fetch('https://docs.google.com/forms/d/e/1FAIpQLSf1w2-MJQJttF3Xys7FwVWAc9lR0S0t89VX4WzdgRzP-ro36Q/formResponse', {
                 method: 'POST',
                 body: formData,
