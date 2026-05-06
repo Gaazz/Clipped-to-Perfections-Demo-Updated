@@ -140,7 +140,7 @@
                             <div id="propertySizeSection" style="display: none;">
                                 <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1e3a5f;">Property Size *</label>
                                 <div class="property-size-row" style="display: flex; gap: 10px;">
-                                    <input type="number" name="propertySize" id="propertySize" min="0" style="flex: 1; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;" placeholder="e.g. 15000">
+                                    <input type="number" name="propertySize" id="propertySize" min="0" step="any" style="flex: 1; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;" placeholder="e.g. 1.5">
                                     <select name="propertySizeUnit" id="propertySizeUnit" style="width: 140px; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;">
                                         <option value="Square Feet">Square Feet</option>
                                         <option value="Acres">Acres</option>
@@ -259,7 +259,8 @@
         formData.append('entry.1342116328', form.querySelector('[name="service"]').value);
         formData.append('entry.776564255', form.querySelector('[name="address"]').value);
         formData.append('entry.828797724', form.querySelector('[name="propertySize"]').value || '');
-        formData.append('entry.380394943', form.querySelector('[name="propertySizeUnit"]').value || '');
+        var unitValue = document.getElementById('propertySizeUnit') ? document.getElementById('propertySizeUnit').value : 'Square Feet';
+        formData.append('entry.380394943', unitValue);
         formData.append('entry.115339051', form.querySelector('[name="message"]').value);
 
         fetch('https://docs.google.com/forms/d/e/1FAIpQLSf1w2-MJQJttF3Xys7FwVWAc9lR0S0t89VX4WzdgRzP-ro36Q/formResponse', {
