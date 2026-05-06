@@ -104,17 +104,17 @@
 
                             <div>
                                 <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1e3a5f;">Name *</label>
-                                <input type="text" name="name" required style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;">
+                                <input type="text" name="name" required style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;" placeholder="John Smith">
                             </div>
                             
                             <div>
                                 <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1e3a5f;">Email *</label>
-                                <input type="email" name="email" required style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;">
+                                <input type="email" name="email" required style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;" placeholder="example@email.com">
                             </div>
                             
                             <div>
                                 <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1e3a5f;">Phone *</label>
-                                <input type="tel" name="phone" required style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;">
+                                <input type="tel" name="phone" required pattern="[0-9\-\(\)\+\s]{7,15}" inputmode="numeric" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;" placeholder="123-456-7890">
                             </div>
                             
                             <div>
@@ -140,7 +140,7 @@
                             <div id="propertySizeSection" style="display: none;">
                                 <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1e3a5f;">Property Size *</label>
                                 <div class="property-size-row" style="display: flex; gap: 10px;">
-                                    <input type="number" name="propertySize" id="propertySize" min="0" step="any" style="flex: 1; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;" placeholder="e.g. 1.5">
+                                    <input type="number" name="propertySize" id="propertySize" min="0" step="any" style="flex: 1; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;" placeholder="e.g. 15000">
                                     <select name="propertySizeUnit" id="propertySizeUnit" style="width: 140px; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;">
                                         <option value="Square Feet">Square Feet</option>
                                         <option value="Acres">Acres</option>
@@ -243,6 +243,15 @@
                 section.style.display = 'none';
                 sizeInput.required = false;
                 sizeInput.value = '';
+            }
+        });
+
+        document.getElementById('propertySizeUnit').addEventListener('change', function() {
+            var sizeInput = document.getElementById('propertySize');
+            if (this.value === 'Acres') {
+                sizeInput.placeholder = 'e.g. 1.5';
+            } else {
+                sizeInput.placeholder = 'e.g. 15000';
             }
         });
     </script>
